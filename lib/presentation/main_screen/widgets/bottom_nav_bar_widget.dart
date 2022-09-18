@@ -11,6 +11,8 @@ class BottomNavBarWidget extends StatelessWidget {
         valueListenable: pageIndex,
         builder: (context, int newVal, _) {
           return BottomNavigationBar(
+            selectedFontSize: 12.0,
+            unselectedFontSize: 12.0,
             currentIndex: newVal,
             onTap: (value) => pageIndex.value = value,
             selectedItemColor: Colors.black,

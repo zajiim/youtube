@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:youtube_clone/core/constants.dart';
 
 import 'presentation/main_screen/main_screen.dart';
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Youtube",
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: kWhiteColor,
+        ),
         brightness: Brightness.light,
       ),
       home: MainScreen(),
