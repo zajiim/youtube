@@ -7,10 +7,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenDimension = MediaQuery.of(context).size;
-    return Scaffold(
+    return const Scaffold(
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(50), child: AppBarWidget()),
+        preferredSize: Size.fromHeight(50),
+        child: AppBarWidget(),
+      ),
       body: Center(
         child: Text("Home Screen"),
       ),
