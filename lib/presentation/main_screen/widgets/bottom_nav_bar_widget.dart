@@ -29,7 +29,9 @@ class BottomNavBarWidget extends StatelessWidget {
                   label: "Home"),
               BottomNavigationBarItem(
                   icon: Icon(
-                    (pageIndex.value == 1) ? Icons.movie : Icons.movie_outlined,
+                    (pageIndex.value == 1)
+                        ? Icons.video_library_rounded
+                        : Icons.video_library_outlined,
                     size: 20,
                   ),
                   label: "Shorts"),

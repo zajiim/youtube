@@ -26,7 +26,7 @@ class VideoListWidget extends StatelessWidget {
               bottom: 12,
               right: 12,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 3),
                 height: 23,
                 width: 85,
                 decoration: BoxDecoration(

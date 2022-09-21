@@ -67,8 +67,7 @@ class SubscriptionScreen extends StatelessWidget {
                 itemCount: choiceChipList.length,
               ),
             ),
-
-            Expanded(
+            SizedBox(
               child: ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -78,8 +77,6 @@ class SubscriptionScreen extends StatelessWidget {
                 itemCount: 10,
               ),
             ),
-
-            // VideoListWidget(screenDimension: screenDimension),
           ],
         ));
   }
