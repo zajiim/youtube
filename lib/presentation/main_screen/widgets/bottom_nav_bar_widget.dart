@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import '../../add_video/widgets/bottom_sheet_content_widget.dart';
+
 ValueNotifier<int> pageIndex = ValueNotifier(0);
 
 class BottomNavBarWidget extends StatelessWidget {
@@ -36,11 +38,16 @@ class BottomNavBarWidget extends StatelessWidget {
                   ),
                   label: "Shorts"),
               BottomNavigationBarItem(
-                  icon: Icon(
-                    (pageIndex.value == 2)
-                        ? Icons.add_circle
-                        : Icons.add_circle_outline,
-                    size: 40,
+                  icon: GestureDetector(
+                    onTap: () {
+                      showShortsSheet(context);
+                    },
+                    child: Icon(
+                      (pageIndex.value == 2)
+                          ? Icons.add_circle
+                          : Icons.add_circle_outline,
+                      size: 40,
+                    ),
                   ),
                   label: ""),
               BottomNavigationBarItem(
@@ -63,4 +70,50 @@ class BottomNavBarWidget extends StatelessWidget {
           );
         });
   }
+}
+
+showShortsSheet(BuildContext context) {
+  final screenDimension = MediaQuery.of(context).size;
+  return showModalBottomSheet(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      context: context,
+      builder: (context) {
+        return SizedBox(
+          height: screenDimension.height * 0.3,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Create",
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.close,
+                    ),
+                  ),
+                ],
+              ),
+              const BottomSheetContentsWidget(
+                icon: Icons.video_collection_outlined,
+                title: "Create a Short",
+              ),
+              const BottomSheetContentsWidget(
+                icon: Icons.file_upload_outlined,
+                title: "Upload a video",
+              ),
+              const BottomSheetContentsWidget(
+                icon: Icons.settings_input_antenna,
+                title: "Go Live",
+              ),
+            ],
+          ),
+        );
+      });
 }
