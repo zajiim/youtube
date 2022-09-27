@@ -42,17 +42,15 @@ class BottomNavBarWidget extends StatelessWidget {
                     onTap: () {
                       showShortsSheet(context);
                     },
-                    child: Icon(
-                      (pageIndex.value == 2)
-                          ? Icons.add_circle
-                          : Icons.add_circle_outline,
+                    child: const Icon(
+                      Icons.add_circle_outline,
                       size: 40,
                     ),
                   ),
                   label: ""),
               BottomNavigationBarItem(
                   icon: Icon(
-                    (pageIndex.value == 3)
+                    (pageIndex.value == 2)
                         ? Icons.subscriptions
                         : Icons.subscriptions_outlined,
                     size: 20,
@@ -60,7 +58,7 @@ class BottomNavBarWidget extends StatelessWidget {
                   label: "Subscription"),
               BottomNavigationBarItem(
                   icon: Icon(
-                    (pageIndex.value == 4)
+                    (pageIndex.value == 3)
                         ? Icons.library_add
                         : Icons.library_add_outlined,
                     size: 20,
