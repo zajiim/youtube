@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import "package:flutter/material.dart";
 import 'package:youtube_clone/core/constants.dart';
+import 'package:youtube_clone/core/sizers.dart';
 
 import 'bottom_part_widget.dart';
 import 'individual_button_right_part_widget.dart';
@@ -23,50 +24,62 @@ class ShortsVideoWidget extends StatelessWidget {
         Positioned(
           left: 0,
           bottom: 50,
-          child: SizedBox(
-            width: screenDimension.width * 0.75,
-            height: 70,
-            child: const Text(
-              "DIY Toys | Satisfying And Relaxing | SADEK Tuts Tiktok Competition | Fidget Trading #SADEK #Shorts tiktok",
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: kWhiteColor,
-                fontSize: 16,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, bottom: 10),
+            child: SizedBox(
+              width: screenDimension.width * 0.75,
+              height: 70,
+              child: const Text(
+                "DIY Toys | Satisfying And Relaxing | SADEK Tuts Tiktok Competition | Fidget Trading #SADEK #Shorts tiktok",
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: kWhiteColor,
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
         ),
         const Align(
           alignment: Alignment.bottomCenter,
-          child: BottomPartWidget(),
+          child: Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: BottomPartWidget(),
+          ),
         ),
         Positioned(
           bottom: 70,
           right: 0,
-          child: Column(
-            children: const [
-              IndividualButtonRightPartWidget(
-                icon: Icons.more_horiz,
-                subtitle: "",
-              ),
-              IndividualButtonRightPartWidget(
-                icon: Icons.thumb_up,
-                subtitle: "245K",
-              ),
-              IndividualButtonRightPartWidget(
-                icon: Icons.thumb_down,
-                subtitle: "Dislike",
-              ),
-              IndividualButtonRightPartWidget(
-                icon: Icons.comment,
-                subtitle: "952",
-              ),
-              IndividualButtonRightPartWidget(
-                icon: Icons.share,
-                subtitle: "Share",
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Column(
+              children: const [
+                IndividualButtonRightPartWidget(
+                  icon: Icons.more_horiz,
+                  subtitle: "",
+                ),
+                IndividualButtonRightPartWidget(
+                  icon: Icons.thumb_up,
+                  subtitle: "245K",
+                ),
+                k10Height,
+                IndividualButtonRightPartWidget(
+                  icon: Icons.thumb_down,
+                  subtitle: "Dislike",
+                ),
+                k10Height,
+                IndividualButtonRightPartWidget(
+                  icon: Icons.comment,
+                  subtitle: "952",
+                ),
+                k10Height,
+                IndividualButtonRightPartWidget(
+                  icon: Icons.share,
+                  subtitle: "Share",
+                ),
+              ],
+            ),
           ),
         ),
       ],

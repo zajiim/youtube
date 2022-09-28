@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import "package:flutter/material.dart";
+import 'package:youtube_clone/core/sizers.dart';
 
 import '../../../core/constants.dart';
 
@@ -22,8 +23,10 @@ class IndividualButtonRightPartWidget extends StatelessWidget {
         ),
         Text(
           subtitle.toString(),
-          style:const TextStyle(color: kWhiteColor, fontWeight: FontWeight.w600),
+          style:
+              const TextStyle(color: kWhiteColor, fontWeight: FontWeight.w600),
         ),
+        
       ],
     );
   }

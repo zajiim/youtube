@@ -1,8 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:youtube_clone/core/sizers.dart';
 
 import '../../../core/constants.dart';
-
-
 
 class BottomPartWidget extends StatelessWidget {
   const BottomPartWidget({
@@ -11,46 +10,52 @@ class BottomPartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const CircleAvatar(
-          foregroundImage: AssetImage(
-            'assets/images/avatar.jpg',
-          ),
-        ),
-       const Text(
-          "SADEK Tuts",
-          style: TextStyle(
-            color: kWhiteColor,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-              kRedColor,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        children: [
+          const CircleAvatar(
+            radius: 18,
+            foregroundImage: AssetImage(
+              'assets/images/avatar.jpg',
             ),
           ),
-          onPressed: () {},
-          child: const Text(
-            "SUBSCRIBE",
-            style: TextStyle(color: kWhiteColor),
+          k10Width,
+          const Text(
+            "SADEK Tuts",
+            style: TextStyle(
+              color: kWhiteColor,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
-        const Spacer(),
-        Container(
-          height: 45,
-          width: 45,
-          decoration: BoxDecoration(
-            color: kGreyColor,
-            borderRadius: BorderRadius.circular(5),
+          k10Width,
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                kRedColor,
+              ),
+            ),
+            onPressed: () {},
+            child: const Text(
+              "SUBSCRIBE",
+              style: TextStyle(color: kWhiteColor),
+            ),
           ),
-          child:const Icon(
-            Icons.graphic_eq,
-            color: kWhiteColor,
+          const Spacer(),
+          Container(
+            height: 38,
+            width: 38,
+            decoration: BoxDecoration(
+              color: kGreyColor,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: const Icon(
+              Icons.graphic_eq,
+              color: kWhiteColor,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

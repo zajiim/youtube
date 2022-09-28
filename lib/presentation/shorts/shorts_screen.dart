@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 
 import 'widgets/shorts_video_widget.dart';
 
-
 class ShortsScreen extends StatelessWidget {
   const ShortsScreen({super.key});
 
@@ -13,7 +12,9 @@ class ShortsScreen extends StatelessWidget {
         child: PageView(
           scrollDirection: Axis.vertical,
           children: List.generate(10, (index) {
-            return  ShortsVideoWidget(index: index,);
+            return ShortsVideoWidget(
+              index: index,
+            );
           }),
         ),
       ),
