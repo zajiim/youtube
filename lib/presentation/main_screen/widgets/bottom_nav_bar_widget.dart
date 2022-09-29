@@ -76,41 +76,45 @@ showShortsSheet(BuildContext context) {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       context: context,
       builder: (context) {
-        return SizedBox(
-          height: screenDimension.height * 0.3,
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Create",
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.close,
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          child: SizedBox(
+            height: screenDimension.height * 0.3,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Create",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
-              ),
-              const BottomSheetContentsWidget(
-                icon: Icons.video_collection_outlined,
-                title: "Create a Short",
-              ),
-              const BottomSheetContentsWidget(
-                icon: Icons.file_upload_outlined,
-                title: "Upload a video",
-              ),
-              const BottomSheetContentsWidget(
-                icon: Icons.settings_input_antenna,
-                title: "Go Live",
-              ),
-            ],
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                      ),
+                    ),
+                  ],
+                ),
+                const BottomSheetContentsWidget(
+                  icon: Icons.video_collection_outlined,
+                  title: "Create a Short",
+                ),
+                const BottomSheetContentsWidget(
+                  icon: Icons.file_upload_outlined,
+                  title: "Upload a video",
+                ),
+                const BottomSheetContentsWidget(
+                  icon: Icons.settings_input_antenna,
+                  title: "Go Live",
+                ),
+              ],
+            ),
           ),
         );
       });

@@ -18,15 +18,18 @@ class BottomSheetContentsWidget extends StatelessWidget {
     return Row(
       children: [
         CircleAvatar(
-          backgroundColor: kGreyColor,
+          radius: 25,
+          backgroundColor: kGreyColor.withOpacity(0.2),
           child: Icon(
             icon,
             color: kBlackColor,
           ),
         ),
         k10Width,
-        k10Width,
-        Text(title),
+        Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w500),
+        ),
       ],
     );
   }

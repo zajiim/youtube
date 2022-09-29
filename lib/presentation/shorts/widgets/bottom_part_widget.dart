@@ -31,6 +31,7 @@ class BottomPartWidget extends StatelessWidget {
           k10Width,
           ElevatedButton(
             style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
               backgroundColor: MaterialStateProperty.all(
                 kRedColor,
               ),

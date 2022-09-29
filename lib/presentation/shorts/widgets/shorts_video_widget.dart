@@ -21,6 +21,35 @@ class ShortsVideoWidget extends StatelessWidget {
         Container(
           color: Colors.accents[index % Colors.accents.length],
         ),
+        Container(
+          width: double.infinity,
+          height: 50,
+          color: kBlackColor,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  iconSize: 30,
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: kWhiteColor,
+                  ),
+                ),
+                IconButton(
+                  iconSize: 30,
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.camera_alt_outlined,
+                    color: kWhiteColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         Positioned(
           left: 0,
           bottom: 50,
