@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import "package:flutter/material.dart";
 
 import '../../../core/constants.dart';
@@ -6,9 +7,12 @@ import '../../../core/sizers.dart';
 class HomeVideoListWidget extends StatelessWidget {
   const HomeVideoListWidget({
     Key? key,
+    this.imgUrl,
+    this.title,
     required this.screenDimension,
   }) : super(key: key);
-
+  final String? imgUrl;
+  final String? title;
   final Size screenDimension;
 
   @override
@@ -20,7 +24,13 @@ class HomeVideoListWidget extends StatelessWidget {
             Container(
               height: screenDimension.height * 0.28,
               width: double.infinity,
-              color: Colors.greenAccent,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                    imgUrl.toString(),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -41,11 +51,11 @@ class HomeVideoListWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "The Beauty of Existence - Heart Touching Nasheed",
+                    Text(
+                      title.toString(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     k5Height,
                     Row(

@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:youtube_clone/application/home/home_bloc.dart';
 import 'package:youtube_clone/core/constants.dart';
 
 import 'package:youtube_clone/presentation/home/widgets/home_video_widget.dart';
@@ -13,7 +15,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<HomeBloc>(context).add(const HomeEvent.getHomeDetails());
+    });
+
     final screenDimension = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
@@ -64,15 +71,27 @@ class HomeScreen extends StatelessWidget {
           ),
           k10Height,
 
-          SizedBox(
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemBuilder: (context, index) =>
-                  HomeVideoListWidget(screenDimension: screenDimension),
-              separatorBuilder: (context, index) => k10Height,
-              itemCount: 10,
-            ),
+          BlocBuilder<HomeBloc, HomeDetailsState>(
+            builder: (context, state) {
+              return SizedBox(
+                child: ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => HomeVideoListWidget(
+                      title: state.home!.items[index].snippet.title,
+                      imgUrl: (state.home!.items[index].snippet.thumbnails
+                                  .maxres?.url ==
+                              null)
+                          ? state
+                              .home!.items[index].snippet.thumbnails.high!.url
+                          : state.home!.items[index].snippet.thumbnails.maxres!
+                              .url,
+                      screenDimension: screenDimension),
+                  separatorBuilder: (context, index) => k10Height,
+                  itemCount: state.home!.items.length,
+                ),
+              );
+            },
           ),
 
           // SizedBox(
