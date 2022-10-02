@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cached_network_image/cached_network_image.dart';
 import "package:flutter/material.dart";
 
 import '../../../core/constants.dart';
@@ -9,10 +10,16 @@ class HomeVideoListWidget extends StatelessWidget {
     Key? key,
     this.imgUrl,
     this.title,
+    this.channelName,
+    this.viewCount,
     required this.screenDimension,
+    required this.channelAvatar,
   }) : super(key: key);
   final String? imgUrl;
   final String? title;
+  final String channelAvatar;
+  final String? channelName;
+  final String? viewCount;
   final Size screenDimension;
 
   @override
@@ -39,12 +46,23 @@ class HomeVideoListWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Row(
             children: [
-              const CircleAvatar(
-                radius: 20,
-                foregroundImage: NetworkImage(
-                  "https://ik.imagekit.io/kit/users/f6/40/mrwhosetheboss-f6401d45a6aeb5c600e2719a5c3914f4.png?tr=q-35,fo-face,bg-FFFFFF,dpr-2,w-150,h-150",
-                ),
+              CachedNetworkImage(
+                imageUrl: channelAvatar.toString(),
+                imageBuilder: (context, imageProvider) {
+                  return CircleAvatar(
+                    backgroundImage: imageProvider,
+                  );
+                },
               ),
+              // CircleAvatar(
+              //   radius: 20,
+              //   // foregroundColor: Colors.transparent,
+              //   // backgroundColor: Colors.transparent,
+              //   // backgroundImage: NetworkImage(
+              //   //   channelAvatar.toString(),
+              //   // ),
+              //   foregroundImage: CachedNetworkImage(imageUrl: channelAvatar.toString()),
+              // ),
               k10Width,
               Expanded(
                 flex: 5,
@@ -59,17 +77,23 @@ class HomeVideoListWidget extends StatelessWidget {
                     ),
                     k5Height,
                     Row(
-                      children: const [
-                        Text(
-                          "1,64,826 views",
-                          style: TextStyle(
-                            color: kGreyColor,
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            // width: screenDimension.width * .40,
+                            child: Text(
+                              channelName.toString(),
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                color: kGreyColor,
+                              ),
+                            ),
                           ),
                         ),
                         k10Width,
                         Text(
-                          "Jul 1, 2016",
-                          style: TextStyle(
+                          "$viewCount Views",
+                          style: const TextStyle(
                             color: kGreyColor,
                           ),
                         ),

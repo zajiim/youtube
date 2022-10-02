@@ -8,7 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:youtube_clone/domain/home/home_services.dart';
 
 import '../../domain/core/failures/main_failure.dart';
-import '../../domain/home/models/home.dart';
+
+import '../../domain/home/models/home/home.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';

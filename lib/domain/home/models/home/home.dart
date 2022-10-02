@@ -7,6 +7,7 @@ part 'home.freezed.dart';
 class HomeModel with _$HomeModel {
   const factory HomeModel({
     required List<Items> items,
+    required String? nextPageToken,
   }) = _HomeModel;
 
   factory HomeModel.fromJson(Map<String, dynamic> json) =>
@@ -17,9 +18,22 @@ class HomeModel with _$HomeModel {
 class Items with _$Items {
   const factory Items({
     required Snippet snippet,
+    required Statistics? statistics,
   }) = _Items;
 
   factory Items.fromJson(Map<String, dynamic> json) => _$ItemsFromJson(json);
+}
+
+
+
+@freezed
+class Statistics with _$Statistics {
+  const factory Statistics({
+    required String viewCount,
+  }) = _Statistics;
+
+  factory Statistics.fromJson(Map<String, dynamic> json) =>
+      _$StatisticsFromJson(json);
 }
 
 @freezed
@@ -28,6 +42,8 @@ class Snippet with _$Snippet {
     required String title,
     required String description,
     required Thumbnails thumbnails,
+    required String channelTitle,
+    required String channelId,
   }) = _Snippet;
 
   factory Snippet.fromJson(Map<String, dynamic> json) =>
@@ -39,10 +55,21 @@ class Thumbnails with _$Thumbnails {
   const factory Thumbnails({
     required MaxResolution? maxres,
     required HighResolution? high,
+    @JsonKey(name: 'default') required LowResolution? low,
   }) = _Thumbnails;
 
   factory Thumbnails.fromJson(Map<String, dynamic> json) =>
       _$ThumbnailsFromJson(json);
+}
+
+@freezed
+class LowResolution with _$LowResolution {
+  const factory LowResolution({
+    required String url,
+  }) = _LowResolution;
+
+  factory LowResolution.fromJson(Map<String, dynamic> json) =>
+      _$LowResolutionFromJson(json);
 }
 
 @freezed

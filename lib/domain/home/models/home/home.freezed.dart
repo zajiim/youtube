@@ -21,6 +21,7 @@ HomeModel _$HomeModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HomeModel {
   List<Items> get items => throw _privateConstructorUsedError;
+  String? get nextPageToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -32,7 +33,7 @@ mixin _$HomeModel {
 abstract class $HomeModelCopyWith<$Res> {
   factory $HomeModelCopyWith(HomeModel value, $Res Function(HomeModel) then) =
       _$HomeModelCopyWithImpl<$Res>;
-  $Res call({List<Items> items});
+  $Res call({List<Items> items, String? nextPageToken});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$HomeModelCopyWithImpl<$Res> implements $HomeModelCopyWith<$Res> {
   @override
   $Res call({
     Object? items = freezed,
+    Object? nextPageToken = freezed,
   }) {
     return _then(_value.copyWith(
       items: items == freezed
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Items>,
+      nextPageToken: nextPageToken == freezed
+          ? _value.nextPageToken
+          : nextPageToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -62,7 +68,7 @@ abstract class _$$_HomeModelCopyWith<$Res> implements $HomeModelCopyWith<$Res> {
           _$_HomeModel value, $Res Function(_$_HomeModel) then) =
       __$$_HomeModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<Items> items});
+  $Res call({List<Items> items, String? nextPageToken});
 }
 
 /// @nodoc
@@ -78,12 +84,17 @@ class __$$_HomeModelCopyWithImpl<$Res> extends _$HomeModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
+    Object? nextPageToken = freezed,
   }) {
     return _then(_$_HomeModel(
       items: items == freezed
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Items>,
+      nextPageToken: nextPageToken == freezed
+          ? _value.nextPageToken
+          : nextPageToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -91,7 +102,9 @@ class __$$_HomeModelCopyWithImpl<$Res> extends _$HomeModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_HomeModel implements _HomeModel {
-  const _$_HomeModel({required final List<Items> items}) : _items = items;
+  const _$_HomeModel(
+      {required final List<Items> items, required this.nextPageToken})
+      : _items = items;
 
   factory _$_HomeModel.fromJson(Map<String, dynamic> json) =>
       _$$_HomeModelFromJson(json);
@@ -104,8 +117,11 @@ class _$_HomeModel implements _HomeModel {
   }
 
   @override
+  final String? nextPageToken;
+
+  @override
   String toString() {
-    return 'HomeModel(items: $items)';
+    return 'HomeModel(items: $items, nextPageToken: $nextPageToken)';
   }
 
   @override
@@ -113,13 +129,17 @@ class _$_HomeModel implements _HomeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeModel &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality()
+                .equals(other.nextPageToken, nextPageToken));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(nextPageToken));
 
   @JsonKey(ignore: true)
   @override
@@ -135,13 +155,17 @@ class _$_HomeModel implements _HomeModel {
 }
 
 abstract class _HomeModel implements HomeModel {
-  const factory _HomeModel({required final List<Items> items}) = _$_HomeModel;
+  const factory _HomeModel(
+      {required final List<Items> items,
+      required final String? nextPageToken}) = _$_HomeModel;
 
   factory _HomeModel.fromJson(Map<String, dynamic> json) =
       _$_HomeModel.fromJson;
 
   @override
   List<Items> get items;
+  @override
+  String? get nextPageToken;
   @override
   @JsonKey(ignore: true)
   _$$_HomeModelCopyWith<_$_HomeModel> get copyWith =>
@@ -155,6 +179,7 @@ Items _$ItemsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Items {
   Snippet get snippet => throw _privateConstructorUsedError;
+  Statistics? get statistics => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -165,9 +190,10 @@ mixin _$Items {
 abstract class $ItemsCopyWith<$Res> {
   factory $ItemsCopyWith(Items value, $Res Function(Items) then) =
       _$ItemsCopyWithImpl<$Res>;
-  $Res call({Snippet snippet});
+  $Res call({Snippet snippet, Statistics? statistics});
 
   $SnippetCopyWith<$Res> get snippet;
+  $StatisticsCopyWith<$Res>? get statistics;
 }
 
 /// @nodoc
@@ -181,12 +207,17 @@ class _$ItemsCopyWithImpl<$Res> implements $ItemsCopyWith<$Res> {
   @override
   $Res call({
     Object? snippet = freezed,
+    Object? statistics = freezed,
   }) {
     return _then(_value.copyWith(
       snippet: snippet == freezed
           ? _value.snippet
           : snippet // ignore: cast_nullable_to_non_nullable
               as Snippet,
+      statistics: statistics == freezed
+          ? _value.statistics
+          : statistics // ignore: cast_nullable_to_non_nullable
+              as Statistics?,
     ));
   }
 
@@ -196,6 +227,17 @@ class _$ItemsCopyWithImpl<$Res> implements $ItemsCopyWith<$Res> {
       return _then(_value.copyWith(snippet: value));
     });
   }
+
+  @override
+  $StatisticsCopyWith<$Res>? get statistics {
+    if (_value.statistics == null) {
+      return null;
+    }
+
+    return $StatisticsCopyWith<$Res>(_value.statistics!, (value) {
+      return _then(_value.copyWith(statistics: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -203,10 +245,12 @@ abstract class _$$_ItemsCopyWith<$Res> implements $ItemsCopyWith<$Res> {
   factory _$$_ItemsCopyWith(_$_Items value, $Res Function(_$_Items) then) =
       __$$_ItemsCopyWithImpl<$Res>;
   @override
-  $Res call({Snippet snippet});
+  $Res call({Snippet snippet, Statistics? statistics});
 
   @override
   $SnippetCopyWith<$Res> get snippet;
+  @override
+  $StatisticsCopyWith<$Res>? get statistics;
 }
 
 /// @nodoc
@@ -221,12 +265,17 @@ class __$$_ItemsCopyWithImpl<$Res> extends _$ItemsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? snippet = freezed,
+    Object? statistics = freezed,
   }) {
     return _then(_$_Items(
       snippet: snippet == freezed
           ? _value.snippet
           : snippet // ignore: cast_nullable_to_non_nullable
               as Snippet,
+      statistics: statistics == freezed
+          ? _value.statistics
+          : statistics // ignore: cast_nullable_to_non_nullable
+              as Statistics?,
     ));
   }
 }
@@ -234,17 +283,19 @@ class __$$_ItemsCopyWithImpl<$Res> extends _$ItemsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Items implements _Items {
-  const _$_Items({required this.snippet});
+  const _$_Items({required this.snippet, required this.statistics});
 
   factory _$_Items.fromJson(Map<String, dynamic> json) =>
       _$$_ItemsFromJson(json);
 
   @override
   final Snippet snippet;
+  @override
+  final Statistics? statistics;
 
   @override
   String toString() {
-    return 'Items(snippet: $snippet)';
+    return 'Items(snippet: $snippet, statistics: $statistics)';
   }
 
   @override
@@ -252,13 +303,17 @@ class _$_Items implements _Items {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Items &&
-            const DeepCollectionEquality().equals(other.snippet, snippet));
+            const DeepCollectionEquality().equals(other.snippet, snippet) &&
+            const DeepCollectionEquality()
+                .equals(other.statistics, statistics));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(snippet));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(snippet),
+      const DeepCollectionEquality().hash(statistics));
 
   @JsonKey(ignore: true)
   @override
@@ -274,15 +329,151 @@ class _$_Items implements _Items {
 }
 
 abstract class _Items implements Items {
-  const factory _Items({required final Snippet snippet}) = _$_Items;
+  const factory _Items(
+      {required final Snippet snippet,
+      required final Statistics? statistics}) = _$_Items;
 
   factory _Items.fromJson(Map<String, dynamic> json) = _$_Items.fromJson;
 
   @override
   Snippet get snippet;
   @override
+  Statistics? get statistics;
+  @override
   @JsonKey(ignore: true)
   _$$_ItemsCopyWith<_$_Items> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Statistics _$StatisticsFromJson(Map<String, dynamic> json) {
+  return _Statistics.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Statistics {
+  String get viewCount => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $StatisticsCopyWith<Statistics> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StatisticsCopyWith<$Res> {
+  factory $StatisticsCopyWith(
+          Statistics value, $Res Function(Statistics) then) =
+      _$StatisticsCopyWithImpl<$Res>;
+  $Res call({String viewCount});
+}
+
+/// @nodoc
+class _$StatisticsCopyWithImpl<$Res> implements $StatisticsCopyWith<$Res> {
+  _$StatisticsCopyWithImpl(this._value, this._then);
+
+  final Statistics _value;
+  // ignore: unused_field
+  final $Res Function(Statistics) _then;
+
+  @override
+  $Res call({
+    Object? viewCount = freezed,
+  }) {
+    return _then(_value.copyWith(
+      viewCount: viewCount == freezed
+          ? _value.viewCount
+          : viewCount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_StatisticsCopyWith<$Res>
+    implements $StatisticsCopyWith<$Res> {
+  factory _$$_StatisticsCopyWith(
+          _$_Statistics value, $Res Function(_$_Statistics) then) =
+      __$$_StatisticsCopyWithImpl<$Res>;
+  @override
+  $Res call({String viewCount});
+}
+
+/// @nodoc
+class __$$_StatisticsCopyWithImpl<$Res> extends _$StatisticsCopyWithImpl<$Res>
+    implements _$$_StatisticsCopyWith<$Res> {
+  __$$_StatisticsCopyWithImpl(
+      _$_Statistics _value, $Res Function(_$_Statistics) _then)
+      : super(_value, (v) => _then(v as _$_Statistics));
+
+  @override
+  _$_Statistics get _value => super._value as _$_Statistics;
+
+  @override
+  $Res call({
+    Object? viewCount = freezed,
+  }) {
+    return _then(_$_Statistics(
+      viewCount: viewCount == freezed
+          ? _value.viewCount
+          : viewCount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Statistics implements _Statistics {
+  const _$_Statistics({required this.viewCount});
+
+  factory _$_Statistics.fromJson(Map<String, dynamic> json) =>
+      _$$_StatisticsFromJson(json);
+
+  @override
+  final String viewCount;
+
+  @override
+  String toString() {
+    return 'Statistics(viewCount: $viewCount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Statistics &&
+            const DeepCollectionEquality().equals(other.viewCount, viewCount));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(viewCount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_StatisticsCopyWith<_$_Statistics> get copyWith =>
+      __$$_StatisticsCopyWithImpl<_$_Statistics>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_StatisticsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Statistics implements Statistics {
+  const factory _Statistics({required final String viewCount}) = _$_Statistics;
+
+  factory _Statistics.fromJson(Map<String, dynamic> json) =
+      _$_Statistics.fromJson;
+
+  @override
+  String get viewCount;
+  @override
+  @JsonKey(ignore: true)
+  _$$_StatisticsCopyWith<_$_Statistics> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -295,6 +486,8 @@ mixin _$Snippet {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   Thumbnails get thumbnails => throw _privateConstructorUsedError;
+  String get channelTitle => throw _privateConstructorUsedError;
+  String get channelId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -305,7 +498,12 @@ mixin _$Snippet {
 abstract class $SnippetCopyWith<$Res> {
   factory $SnippetCopyWith(Snippet value, $Res Function(Snippet) then) =
       _$SnippetCopyWithImpl<$Res>;
-  $Res call({String title, String description, Thumbnails thumbnails});
+  $Res call(
+      {String title,
+      String description,
+      Thumbnails thumbnails,
+      String channelTitle,
+      String channelId});
 
   $ThumbnailsCopyWith<$Res> get thumbnails;
 }
@@ -323,6 +521,8 @@ class _$SnippetCopyWithImpl<$Res> implements $SnippetCopyWith<$Res> {
     Object? title = freezed,
     Object? description = freezed,
     Object? thumbnails = freezed,
+    Object? channelTitle = freezed,
+    Object? channelId = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -337,6 +537,14 @@ class _$SnippetCopyWithImpl<$Res> implements $SnippetCopyWith<$Res> {
           ? _value.thumbnails
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as Thumbnails,
+      channelTitle: channelTitle == freezed
+          ? _value.channelTitle
+          : channelTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      channelId: channelId == freezed
+          ? _value.channelId
+          : channelId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -354,7 +562,12 @@ abstract class _$$_SnippetCopyWith<$Res> implements $SnippetCopyWith<$Res> {
           _$_Snippet value, $Res Function(_$_Snippet) then) =
       __$$_SnippetCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String description, Thumbnails thumbnails});
+  $Res call(
+      {String title,
+      String description,
+      Thumbnails thumbnails,
+      String channelTitle,
+      String channelId});
 
   @override
   $ThumbnailsCopyWith<$Res> get thumbnails;
@@ -374,6 +587,8 @@ class __$$_SnippetCopyWithImpl<$Res> extends _$SnippetCopyWithImpl<$Res>
     Object? title = freezed,
     Object? description = freezed,
     Object? thumbnails = freezed,
+    Object? channelTitle = freezed,
+    Object? channelId = freezed,
   }) {
     return _then(_$_Snippet(
       title: title == freezed
@@ -388,6 +603,14 @@ class __$$_SnippetCopyWithImpl<$Res> extends _$SnippetCopyWithImpl<$Res>
           ? _value.thumbnails
           : thumbnails // ignore: cast_nullable_to_non_nullable
               as Thumbnails,
+      channelTitle: channelTitle == freezed
+          ? _value.channelTitle
+          : channelTitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      channelId: channelId == freezed
+          ? _value.channelId
+          : channelId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -398,7 +621,9 @@ class _$_Snippet implements _Snippet {
   const _$_Snippet(
       {required this.title,
       required this.description,
-      required this.thumbnails});
+      required this.thumbnails,
+      required this.channelTitle,
+      required this.channelId});
 
   factory _$_Snippet.fromJson(Map<String, dynamic> json) =>
       _$$_SnippetFromJson(json);
@@ -409,10 +634,14 @@ class _$_Snippet implements _Snippet {
   final String description;
   @override
   final Thumbnails thumbnails;
+  @override
+  final String channelTitle;
+  @override
+  final String channelId;
 
   @override
   String toString() {
-    return 'Snippet(title: $title, description: $description, thumbnails: $thumbnails)';
+    return 'Snippet(title: $title, description: $description, thumbnails: $thumbnails, channelTitle: $channelTitle, channelId: $channelId)';
   }
 
   @override
@@ -424,7 +653,10 @@ class _$_Snippet implements _Snippet {
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality()
-                .equals(other.thumbnails, thumbnails));
+                .equals(other.thumbnails, thumbnails) &&
+            const DeepCollectionEquality()
+                .equals(other.channelTitle, channelTitle) &&
+            const DeepCollectionEquality().equals(other.channelId, channelId));
   }
 
   @JsonKey(ignore: true)
@@ -433,7 +665,9 @@ class _$_Snippet implements _Snippet {
       runtimeType,
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(thumbnails));
+      const DeepCollectionEquality().hash(thumbnails),
+      const DeepCollectionEquality().hash(channelTitle),
+      const DeepCollectionEquality().hash(channelId));
 
   @JsonKey(ignore: true)
   @override
@@ -452,7 +686,9 @@ abstract class _Snippet implements Snippet {
   const factory _Snippet(
       {required final String title,
       required final String description,
-      required final Thumbnails thumbnails}) = _$_Snippet;
+      required final Thumbnails thumbnails,
+      required final String channelTitle,
+      required final String channelId}) = _$_Snippet;
 
   factory _Snippet.fromJson(Map<String, dynamic> json) = _$_Snippet.fromJson;
 
@@ -462,6 +698,10 @@ abstract class _Snippet implements Snippet {
   String get description;
   @override
   Thumbnails get thumbnails;
+  @override
+  String get channelTitle;
+  @override
+  String get channelId;
   @override
   @JsonKey(ignore: true)
   _$$_SnippetCopyWith<_$_Snippet> get copyWith =>
@@ -476,6 +716,8 @@ Thumbnails _$ThumbnailsFromJson(Map<String, dynamic> json) {
 mixin _$Thumbnails {
   MaxResolution? get maxres => throw _privateConstructorUsedError;
   HighResolution? get high => throw _privateConstructorUsedError;
+  @JsonKey(name: 'default')
+  LowResolution? get low => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -488,10 +730,14 @@ abstract class $ThumbnailsCopyWith<$Res> {
   factory $ThumbnailsCopyWith(
           Thumbnails value, $Res Function(Thumbnails) then) =
       _$ThumbnailsCopyWithImpl<$Res>;
-  $Res call({MaxResolution? maxres, HighResolution? high});
+  $Res call(
+      {MaxResolution? maxres,
+      HighResolution? high,
+      @JsonKey(name: 'default') LowResolution? low});
 
   $MaxResolutionCopyWith<$Res>? get maxres;
   $HighResolutionCopyWith<$Res>? get high;
+  $LowResolutionCopyWith<$Res>? get low;
 }
 
 /// @nodoc
@@ -506,6 +752,7 @@ class _$ThumbnailsCopyWithImpl<$Res> implements $ThumbnailsCopyWith<$Res> {
   $Res call({
     Object? maxres = freezed,
     Object? high = freezed,
+    Object? low = freezed,
   }) {
     return _then(_value.copyWith(
       maxres: maxres == freezed
@@ -516,6 +763,10 @@ class _$ThumbnailsCopyWithImpl<$Res> implements $ThumbnailsCopyWith<$Res> {
           ? _value.high
           : high // ignore: cast_nullable_to_non_nullable
               as HighResolution?,
+      low: low == freezed
+          ? _value.low
+          : low // ignore: cast_nullable_to_non_nullable
+              as LowResolution?,
     ));
   }
 
@@ -540,6 +791,17 @@ class _$ThumbnailsCopyWithImpl<$Res> implements $ThumbnailsCopyWith<$Res> {
       return _then(_value.copyWith(high: value));
     });
   }
+
+  @override
+  $LowResolutionCopyWith<$Res>? get low {
+    if (_value.low == null) {
+      return null;
+    }
+
+    return $LowResolutionCopyWith<$Res>(_value.low!, (value) {
+      return _then(_value.copyWith(low: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -549,12 +811,17 @@ abstract class _$$_ThumbnailsCopyWith<$Res>
           _$_Thumbnails value, $Res Function(_$_Thumbnails) then) =
       __$$_ThumbnailsCopyWithImpl<$Res>;
   @override
-  $Res call({MaxResolution? maxres, HighResolution? high});
+  $Res call(
+      {MaxResolution? maxres,
+      HighResolution? high,
+      @JsonKey(name: 'default') LowResolution? low});
 
   @override
   $MaxResolutionCopyWith<$Res>? get maxres;
   @override
   $HighResolutionCopyWith<$Res>? get high;
+  @override
+  $LowResolutionCopyWith<$Res>? get low;
 }
 
 /// @nodoc
@@ -571,6 +838,7 @@ class __$$_ThumbnailsCopyWithImpl<$Res> extends _$ThumbnailsCopyWithImpl<$Res>
   $Res call({
     Object? maxres = freezed,
     Object? high = freezed,
+    Object? low = freezed,
   }) {
     return _then(_$_Thumbnails(
       maxres: maxres == freezed
@@ -581,6 +849,10 @@ class __$$_ThumbnailsCopyWithImpl<$Res> extends _$ThumbnailsCopyWithImpl<$Res>
           ? _value.high
           : high // ignore: cast_nullable_to_non_nullable
               as HighResolution?,
+      low: low == freezed
+          ? _value.low
+          : low // ignore: cast_nullable_to_non_nullable
+              as LowResolution?,
     ));
   }
 }
@@ -588,7 +860,10 @@ class __$$_ThumbnailsCopyWithImpl<$Res> extends _$ThumbnailsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Thumbnails implements _Thumbnails {
-  const _$_Thumbnails({required this.maxres, required this.high});
+  const _$_Thumbnails(
+      {required this.maxres,
+      required this.high,
+      @JsonKey(name: 'default') required this.low});
 
   factory _$_Thumbnails.fromJson(Map<String, dynamic> json) =>
       _$$_ThumbnailsFromJson(json);
@@ -597,10 +872,13 @@ class _$_Thumbnails implements _Thumbnails {
   final MaxResolution? maxres;
   @override
   final HighResolution? high;
+  @override
+  @JsonKey(name: 'default')
+  final LowResolution? low;
 
   @override
   String toString() {
-    return 'Thumbnails(maxres: $maxres, high: $high)';
+    return 'Thumbnails(maxres: $maxres, high: $high, low: $low)';
   }
 
   @override
@@ -609,7 +887,8 @@ class _$_Thumbnails implements _Thumbnails {
         (other.runtimeType == runtimeType &&
             other is _$_Thumbnails &&
             const DeepCollectionEquality().equals(other.maxres, maxres) &&
-            const DeepCollectionEquality().equals(other.high, high));
+            const DeepCollectionEquality().equals(other.high, high) &&
+            const DeepCollectionEquality().equals(other.low, low));
   }
 
   @JsonKey(ignore: true)
@@ -617,7 +896,8 @@ class _$_Thumbnails implements _Thumbnails {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(maxres),
-      const DeepCollectionEquality().hash(high));
+      const DeepCollectionEquality().hash(high),
+      const DeepCollectionEquality().hash(low));
 
   @JsonKey(ignore: true)
   @override
@@ -634,8 +914,10 @@ class _$_Thumbnails implements _Thumbnails {
 
 abstract class _Thumbnails implements Thumbnails {
   const factory _Thumbnails(
-      {required final MaxResolution? maxres,
-      required final HighResolution? high}) = _$_Thumbnails;
+          {required final MaxResolution? maxres,
+          required final HighResolution? high,
+          @JsonKey(name: 'default') required final LowResolution? low}) =
+      _$_Thumbnails;
 
   factory _Thumbnails.fromJson(Map<String, dynamic> json) =
       _$_Thumbnails.fromJson;
@@ -645,8 +927,145 @@ abstract class _Thumbnails implements Thumbnails {
   @override
   HighResolution? get high;
   @override
+  @JsonKey(name: 'default')
+  LowResolution? get low;
+  @override
   @JsonKey(ignore: true)
   _$$_ThumbnailsCopyWith<_$_Thumbnails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+LowResolution _$LowResolutionFromJson(Map<String, dynamic> json) {
+  return _LowResolution.fromJson(json);
+}
+
+/// @nodoc
+mixin _$LowResolution {
+  String get url => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LowResolutionCopyWith<LowResolution> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LowResolutionCopyWith<$Res> {
+  factory $LowResolutionCopyWith(
+          LowResolution value, $Res Function(LowResolution) then) =
+      _$LowResolutionCopyWithImpl<$Res>;
+  $Res call({String url});
+}
+
+/// @nodoc
+class _$LowResolutionCopyWithImpl<$Res>
+    implements $LowResolutionCopyWith<$Res> {
+  _$LowResolutionCopyWithImpl(this._value, this._then);
+
+  final LowResolution _value;
+  // ignore: unused_field
+  final $Res Function(LowResolution) _then;
+
+  @override
+  $Res call({
+    Object? url = freezed,
+  }) {
+    return _then(_value.copyWith(
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_LowResolutionCopyWith<$Res>
+    implements $LowResolutionCopyWith<$Res> {
+  factory _$$_LowResolutionCopyWith(
+          _$_LowResolution value, $Res Function(_$_LowResolution) then) =
+      __$$_LowResolutionCopyWithImpl<$Res>;
+  @override
+  $Res call({String url});
+}
+
+/// @nodoc
+class __$$_LowResolutionCopyWithImpl<$Res>
+    extends _$LowResolutionCopyWithImpl<$Res>
+    implements _$$_LowResolutionCopyWith<$Res> {
+  __$$_LowResolutionCopyWithImpl(
+      _$_LowResolution _value, $Res Function(_$_LowResolution) _then)
+      : super(_value, (v) => _then(v as _$_LowResolution));
+
+  @override
+  _$_LowResolution get _value => super._value as _$_LowResolution;
+
+  @override
+  $Res call({
+    Object? url = freezed,
+  }) {
+    return _then(_$_LowResolution(
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_LowResolution implements _LowResolution {
+  const _$_LowResolution({required this.url});
+
+  factory _$_LowResolution.fromJson(Map<String, dynamic> json) =>
+      _$$_LowResolutionFromJson(json);
+
+  @override
+  final String url;
+
+  @override
+  String toString() {
+    return 'LowResolution(url: $url)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LowResolution &&
+            const DeepCollectionEquality().equals(other.url, url));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(url));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_LowResolutionCopyWith<_$_LowResolution> get copyWith =>
+      __$$_LowResolutionCopyWithImpl<_$_LowResolution>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_LowResolutionToJson(
+      this,
+    );
+  }
+}
+
+abstract class _LowResolution implements LowResolution {
+  const factory _LowResolution({required final String url}) = _$_LowResolution;
+
+  factory _LowResolution.fromJson(Map<String, dynamic> json) =
+      _$_LowResolution.fromJson;
+
+  @override
+  String get url;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LowResolutionCopyWith<_$_LowResolution> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

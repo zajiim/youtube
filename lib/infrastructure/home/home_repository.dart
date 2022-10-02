@@ -6,7 +6,8 @@ import 'package:youtube_clone/domain/core/api_end_points.dart';
 import 'package:youtube_clone/domain/core/failures/main_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:youtube_clone/domain/home/home_services.dart';
-import 'package:youtube_clone/domain/home/models/home.dart';
+
+import '../../domain/home/models/home/home.dart';
 
 @LazySingleton(as: HomeService)
 class HomeRepository implements HomeService {
@@ -19,6 +20,7 @@ class HomeRepository implements HomeService {
       if (response.statusCode == 200 || response.statusCode == 201) {
         // log(response.data['items'].toString());
         final homeDetailsResult = HomeModel.fromJson(response.data);
+
         return Right(homeDetailsResult);
       } else {
         return const Left(MainFailure.serverFailure());
