@@ -178,6 +178,7 @@ Items _$ItemsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Items {
+  String get id => throw _privateConstructorUsedError;
   Snippet get snippet => throw _privateConstructorUsedError;
   Statistics? get statistics => throw _privateConstructorUsedError;
 
@@ -190,7 +191,7 @@ mixin _$Items {
 abstract class $ItemsCopyWith<$Res> {
   factory $ItemsCopyWith(Items value, $Res Function(Items) then) =
       _$ItemsCopyWithImpl<$Res>;
-  $Res call({Snippet snippet, Statistics? statistics});
+  $Res call({String id, Snippet snippet, Statistics? statistics});
 
   $SnippetCopyWith<$Res> get snippet;
   $StatisticsCopyWith<$Res>? get statistics;
@@ -206,10 +207,15 @@ class _$ItemsCopyWithImpl<$Res> implements $ItemsCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? snippet = freezed,
     Object? statistics = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       snippet: snippet == freezed
           ? _value.snippet
           : snippet // ignore: cast_nullable_to_non_nullable
@@ -245,7 +251,7 @@ abstract class _$$_ItemsCopyWith<$Res> implements $ItemsCopyWith<$Res> {
   factory _$$_ItemsCopyWith(_$_Items value, $Res Function(_$_Items) then) =
       __$$_ItemsCopyWithImpl<$Res>;
   @override
-  $Res call({Snippet snippet, Statistics? statistics});
+  $Res call({String id, Snippet snippet, Statistics? statistics});
 
   @override
   $SnippetCopyWith<$Res> get snippet;
@@ -264,10 +270,15 @@ class __$$_ItemsCopyWithImpl<$Res> extends _$ItemsCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? snippet = freezed,
     Object? statistics = freezed,
   }) {
     return _then(_$_Items(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       snippet: snippet == freezed
           ? _value.snippet
           : snippet // ignore: cast_nullable_to_non_nullable
@@ -283,11 +294,14 @@ class __$$_ItemsCopyWithImpl<$Res> extends _$ItemsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Items implements _Items {
-  const _$_Items({required this.snippet, required this.statistics});
+  const _$_Items(
+      {required this.id, required this.snippet, required this.statistics});
 
   factory _$_Items.fromJson(Map<String, dynamic> json) =>
       _$$_ItemsFromJson(json);
 
+  @override
+  final String id;
   @override
   final Snippet snippet;
   @override
@@ -295,7 +309,7 @@ class _$_Items implements _Items {
 
   @override
   String toString() {
-    return 'Items(snippet: $snippet, statistics: $statistics)';
+    return 'Items(id: $id, snippet: $snippet, statistics: $statistics)';
   }
 
   @override
@@ -303,6 +317,7 @@ class _$_Items implements _Items {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Items &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.snippet, snippet) &&
             const DeepCollectionEquality()
                 .equals(other.statistics, statistics));
@@ -312,6 +327,7 @@ class _$_Items implements _Items {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(snippet),
       const DeepCollectionEquality().hash(statistics));
 
@@ -330,11 +346,14 @@ class _$_Items implements _Items {
 
 abstract class _Items implements Items {
   const factory _Items(
-      {required final Snippet snippet,
+      {required final String id,
+      required final Snippet snippet,
       required final Statistics? statistics}) = _$_Items;
 
   factory _Items.fromJson(Map<String, dynamic> json) = _$_Items.fromJson;
 
+  @override
+  String get id;
   @override
   Snippet get snippet;
   @override

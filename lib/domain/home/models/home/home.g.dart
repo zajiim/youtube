@@ -20,6 +20,7 @@ Map<String, dynamic> _$$_HomeModelToJson(_$_HomeModel instance) =>
     };
 
 _$_Items _$$_ItemsFromJson(Map<String, dynamic> json) => _$_Items(
+      id: json['id'] as String,
       snippet: Snippet.fromJson(json['snippet'] as Map<String, dynamic>),
       statistics: json['statistics'] == null
           ? null
@@ -27,6 +28,7 @@ _$_Items _$$_ItemsFromJson(Map<String, dynamic> json) => _$_Items(
     );
 
 Map<String, dynamic> _$$_ItemsToJson(_$_Items instance) => <String, dynamic>{
+      'id': instance.id,
       'snippet': instance.snippet,
       'statistics': instance.statistics,
     };

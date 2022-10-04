@@ -17,6 +17,7 @@ class HomeModel with _$HomeModel {
 @freezed
 class Items with _$Items {
   const factory Items({
+    required String id,
     required Snippet snippet,
     required Statistics? statistics,
   }) = _Items;

@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cached_network_image/cached_network_image.dart';
 import "package:flutter/material.dart";
+import 'package:youtube_clone/presentation/video_details/video_details_screen.dart';
 
 import '../../../core/constants.dart';
 import '../../../core/sizers.dart';
 
 class HomeVideoListWidget extends StatelessWidget {
-  const HomeVideoListWidget({
+  HomeVideoListWidget({
     Key? key,
     this.imgUrl,
     this.title,
@@ -14,6 +15,7 @@ class HomeVideoListWidget extends StatelessWidget {
     this.viewCount,
     required this.screenDimension,
     required this.channelAvatar,
+    required this.videoID,
   }) : super(key: key);
   final String? imgUrl;
   final String? title;
@@ -22,24 +24,35 @@ class HomeVideoListWidget extends StatelessWidget {
   final String? viewCount;
   final Size screenDimension;
 
+  final videoID;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Stack(
-          children: [
-            Container(
-              height: screenDimension.height * 0.28,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(
-                    imgUrl.toString(),
-                  ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => VideoDetailsScreen(
+                  videoId: videoID,
+                  title: title.toString(),
+                  channelName: channelName.toString(),
+                ),
+              ),
+            );
+          },
+          child: Container(
+            height: screenDimension.height * 0.28,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  imgUrl.toString(),
                 ),
               ),
             ),
-          ],
+          ),
         ),
         k10Height,
         Padding(

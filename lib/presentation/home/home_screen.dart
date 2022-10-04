@@ -79,11 +79,12 @@ class HomeScreen extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    final String channelAvatarId =
-                        state.home!.items[index].snippet.channelId;
-                    final String avatarDetailsUrl =
-                        "$kBaseUrl/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&id=$channelAvatarId&key=$API_KEY";
+                    // final String channelAvatarId =
+                    //     state.home!.items[index].snippet.channelId;
+                    // final String avatarDetailsUrl =
+                    //     "$kBaseUrl/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&id=$channelAvatarId&key=$API_KEY";
                     return HomeVideoListWidget(
+                      videoID: state.home?.items[index].id,
                       title: state.home!.items[index].snippet.title,
                       imgUrl: (state.home!.items[index].snippet.thumbnails
                                   .maxres?.url ==
