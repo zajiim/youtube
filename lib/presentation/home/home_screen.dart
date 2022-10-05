@@ -85,17 +85,18 @@ class HomeScreen extends StatelessWidget {
                     //     "$kBaseUrl/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&id=$channelAvatarId&key=$API_KEY";
                     return HomeVideoListWidget(
                       videoID: state.home?.items[index].id,
-                      title: state.home!.items[index].snippet.title,
-                      imgUrl: (state.home!.items[index].snippet.thumbnails
+                      title: state.home?.items[index].snippet.title,
+                      imgUrl: (state.home?.items[index].snippet.thumbnails
                                   .maxres?.url ==
                               null)
                           ? state
-                              .home!.items[index].snippet.thumbnails.high?.url
-                          : state.home!.items[index].snippet.thumbnails.maxres!
+                              .home?.items[index].snippet.thumbnails.high?.url
+                          : state.home?.items[index].snippet.thumbnails.maxres!
                               .url,
                       channelName:
-                          state.home!.items[index].snippet.channelTitle,
-                      viewCount: state.home!.items[index].statistics?.viewCount,
+                          state.home?.items[index].snippet.channelTitle,
+                      viewCount: state.home?.items[index].statistics?.viewCount,
+                      likeCount: state.home?.items[index].statistics?.likeCount,
                       channelAvatar:
                           state.home!.items[index].snippet.thumbnails.low!.url,
                       screenDimension: screenDimension,

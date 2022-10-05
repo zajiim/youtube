@@ -60,6 +60,7 @@
 
 import "package:flutter/material.dart";
 import 'package:youtube_clone/core/constants.dart';
+import 'package:youtube_clone/core/sizers.dart';
 import 'package:youtube_clone/presentation/home/widgets/home_video_widget.dart';
 import 'package:youtube_clone/presentation/video_details/widgets/icon_widget.dart';
 import 'package:youtube_clone/presentation/video_details/widgets/video_player_widget.dart';
@@ -70,10 +71,13 @@ class VideoDetailsScreen extends StatelessWidget {
       {super.key,
       required this.videoId,
       required this.channelName,
-      required this.title});
+      required this.title,
+      required this.channelAvatar, required this.likeCount});
   final String videoId;
   final String channelName;
   final String title;
+  final String channelAvatar;
+  final String likeCount;
 
   @override
   Widget build(BuildContext context) {
@@ -83,87 +87,138 @@ class VideoDetailsScreen extends StatelessWidget {
         children: [
           SizedBox(
             width: double.infinity,
-            height: screenDimension.height * 0.35,
+            height: screenDimension.height * 0.30,
             child: VideoPlayerWidget(
               videoID: videoId,
             ),
           ),
-          Column(
-            children: [
-              Row(
-                children: [
-                  Text("Lorem Ipsom... sfhi bdfjber  dfuf,.isdfhi fdfdfe"),
-                  Icon(Icons.arrow_drop_down),
-                ],
-              ),
-              Text("3278 views ."),
-              Text("Premiered Jul 1, 2001"),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    const Icon(Icons.arrow_drop_down),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      "3278 views . ",
+                      style: TextStyle(color: kGreyColor, fontSize: 15),
+                    ),
+                    const Text(
+                      "Premiered Jul 1, 2001",
+                      style: TextStyle(color: kGreyColor, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              IconWidget(
-                icon: Icons.thumb_up_off_alt_outlined,
-                text: "22.4K",
-              ),
-              IconWidget(
-                icon: Icons.thumb_down_alt_outlined,
-                text: "65",
-              ),
-              IconWidget(
-                icon: Icons.share_outlined,
-                text: "Share",
-              ),
-              IconWidget(
-                icon: Icons.download_outlined,
-                text: "Download",
-              ),
-              IconWidget(
-                icon: Icons.add_business_outlined,
-                text: "Save",
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                 IconWidget(
+                  icon: Icons.thumb_up_off_alt_outlined,
+                  text: likeCount,
+                ),
+                const IconWidget(
+                  icon: Icons.thumb_down_alt_outlined,
+                  text: "65",
+                ),
+                const IconWidget(
+                  icon: Icons.share_outlined,
+                  text: "Share",
+                ),
+                const IconWidget(
+                  icon: Icons.download_outlined,
+                  text: "Download",
+                ),
+                const IconWidget(
+                  icon: Icons.add_business_outlined,
+                  text: "Save",
+                ),
+              ],
+            ),
           ),
           const Divider(),
-          Row(
-            children: [
-              CircleAvatar(),
-              Column(
-                children: [
-                  Text("Voice of Books"),
-                  Text("289K Subscribe"),
-                ],
-              ),
-              const Spacer(),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "SUBSCRIBE",
-                  style: TextStyle(
-                    color: kRedColor,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  foregroundImage: NetworkImage(channelAvatar),
+                ),
+                k10Width,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      channelName,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w400),
+                    ),
+                    const Text(
+                      "289K Subscribe",
+                      style: TextStyle(color: kGreyColor),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "SUBSCRIBE",
+                    style: TextStyle(
+                      color: kRedColor,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const Divider(),
-          Row(
-            children: [
-              Text("Comments"),
-              Icon(Icons.unfold_more),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              children: [
+                const Text("Comments"),
+                const Spacer(),
+                const Icon(Icons.unfold_more),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              CircleAvatar(),
-              Text("Awesome content, but presentation is boring"),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  radius: 14,
+                ),
+                k10Width,
+                k10Width,
+                const Text(
+                  "Awesome content, but presentation is boring",
+                  style: TextStyle(fontSize: 13),
+                ),
+              ],
+            ),
           ),
           ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
             itemBuilder: (context, index) {
               return HomeVideoListWidget(
-                  imgUrl:
-                      "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/01/13/Pictures/_53cfbde6-3602-11ea-8a26-bda02fe1f8d7.jpg",
+                  imgUrl: "",
                   screenDimension: screenDimension,
                   channelAvatar: "",
                   videoID: "");

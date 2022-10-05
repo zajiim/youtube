@@ -16,12 +16,14 @@ class HomeVideoListWidget extends StatelessWidget {
     required this.screenDimension,
     required this.channelAvatar,
     required this.videoID,
+    this.likeCount,
   }) : super(key: key);
   final String? imgUrl;
   final String? title;
   final String channelAvatar;
   final String? channelName;
   final String? viewCount;
+  final String? likeCount;
   final Size screenDimension;
 
   final videoID;
@@ -38,6 +40,8 @@ class HomeVideoListWidget extends StatelessWidget {
                   videoId: videoID,
                   title: title.toString(),
                   channelName: channelName.toString(),
+                  channelAvatar: channelAvatar,
+                  likeCount: likeCount.toString(),
                 ),
               ),
             );

@@ -36,11 +36,13 @@ Map<String, dynamic> _$$_ItemsToJson(_$_Items instance) => <String, dynamic>{
 _$_Statistics _$$_StatisticsFromJson(Map<String, dynamic> json) =>
     _$_Statistics(
       viewCount: json['viewCount'] as String,
+      likeCount: json['likeCount'] as String,
     );
 
 Map<String, dynamic> _$$_StatisticsToJson(_$_Statistics instance) =>
     <String, dynamic>{
       'viewCount': instance.viewCount,
+      'likeCount': instance.likeCount,
     };
 
 _$_Snippet _$$_SnippetFromJson(Map<String, dynamic> json) => _$_Snippet(

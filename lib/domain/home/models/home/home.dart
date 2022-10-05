@@ -31,6 +31,7 @@ class Items with _$Items {
 class Statistics with _$Statistics {
   const factory Statistics({
     required String viewCount,
+    required String likeCount,
   }) = _Statistics;
 
   factory Statistics.fromJson(Map<String, dynamic> json) =>

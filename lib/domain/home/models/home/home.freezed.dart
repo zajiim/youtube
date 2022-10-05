@@ -371,6 +371,7 @@ Statistics _$StatisticsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Statistics {
   String get viewCount => throw _privateConstructorUsedError;
+  String get likeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -383,7 +384,7 @@ abstract class $StatisticsCopyWith<$Res> {
   factory $StatisticsCopyWith(
           Statistics value, $Res Function(Statistics) then) =
       _$StatisticsCopyWithImpl<$Res>;
-  $Res call({String viewCount});
+  $Res call({String viewCount, String likeCount});
 }
 
 /// @nodoc
@@ -397,11 +398,16 @@ class _$StatisticsCopyWithImpl<$Res> implements $StatisticsCopyWith<$Res> {
   @override
   $Res call({
     Object? viewCount = freezed,
+    Object? likeCount = freezed,
   }) {
     return _then(_value.copyWith(
       viewCount: viewCount == freezed
           ? _value.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
+              as String,
+      likeCount: likeCount == freezed
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -414,7 +420,7 @@ abstract class _$$_StatisticsCopyWith<$Res>
           _$_Statistics value, $Res Function(_$_Statistics) then) =
       __$$_StatisticsCopyWithImpl<$Res>;
   @override
-  $Res call({String viewCount});
+  $Res call({String viewCount, String likeCount});
 }
 
 /// @nodoc
@@ -430,11 +436,16 @@ class __$$_StatisticsCopyWithImpl<$Res> extends _$StatisticsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? viewCount = freezed,
+    Object? likeCount = freezed,
   }) {
     return _then(_$_Statistics(
       viewCount: viewCount == freezed
           ? _value.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
+              as String,
+      likeCount: likeCount == freezed
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -443,17 +454,19 @@ class __$$_StatisticsCopyWithImpl<$Res> extends _$StatisticsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Statistics implements _Statistics {
-  const _$_Statistics({required this.viewCount});
+  const _$_Statistics({required this.viewCount, required this.likeCount});
 
   factory _$_Statistics.fromJson(Map<String, dynamic> json) =>
       _$$_StatisticsFromJson(json);
 
   @override
   final String viewCount;
+  @override
+  final String likeCount;
 
   @override
   String toString() {
-    return 'Statistics(viewCount: $viewCount)';
+    return 'Statistics(viewCount: $viewCount, likeCount: $likeCount)';
   }
 
   @override
@@ -461,13 +474,16 @@ class _$_Statistics implements _Statistics {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Statistics &&
-            const DeepCollectionEquality().equals(other.viewCount, viewCount));
+            const DeepCollectionEquality().equals(other.viewCount, viewCount) &&
+            const DeepCollectionEquality().equals(other.likeCount, likeCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(viewCount));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(viewCount),
+      const DeepCollectionEquality().hash(likeCount));
 
   @JsonKey(ignore: true)
   @override
@@ -483,13 +499,17 @@ class _$_Statistics implements _Statistics {
 }
 
 abstract class _Statistics implements Statistics {
-  const factory _Statistics({required final String viewCount}) = _$_Statistics;
+  const factory _Statistics(
+      {required final String viewCount,
+      required final String likeCount}) = _$_Statistics;
 
   factory _Statistics.fromJson(Map<String, dynamic> json) =
       _$_Statistics.fromJson;
 
   @override
   String get viewCount;
+  @override
+  String get likeCount;
   @override
   @JsonKey(ignore: true)
   _$$_StatisticsCopyWith<_$_Statistics> get copyWith =>
