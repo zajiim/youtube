@@ -52,6 +52,7 @@ _$_Snippet _$$_SnippetFromJson(Map<String, dynamic> json) => _$_Snippet(
           Thumbnails.fromJson(json['thumbnails'] as Map<String, dynamic>),
       channelTitle: json['channelTitle'] as String,
       channelId: json['channelId'] as String,
+      publishedAt: json['publishedAt'] as String,
     );
 
 Map<String, dynamic> _$$_SnippetToJson(_$_Snippet instance) =>
@@ -61,6 +62,7 @@ Map<String, dynamic> _$$_SnippetToJson(_$_Snippet instance) =>
       'thumbnails': instance.thumbnails,
       'channelTitle': instance.channelTitle,
       'channelId': instance.channelId,
+      'publishedAt': instance.publishedAt,
     };
 
 _$_Thumbnails _$$_ThumbnailsFromJson(Map<String, dynamic> json) =>

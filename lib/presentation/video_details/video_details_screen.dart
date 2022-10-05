@@ -72,12 +72,17 @@ class VideoDetailsScreen extends StatelessWidget {
       required this.videoId,
       required this.channelName,
       required this.title,
-      required this.channelAvatar, required this.likeCount});
+      required this.channelAvatar,
+      required this.likeCount,
+      required this.viewCount,
+      required this.publishedAt});
   final String videoId;
   final String channelName;
   final String title;
   final String channelAvatar;
   final String likeCount;
+  final String viewCount;
+  final String publishedAt;
 
   @override
   Widget build(BuildContext context) {
@@ -109,13 +114,13 @@ class VideoDetailsScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Text(
-                      "3278 views . ",
-                      style: TextStyle(color: kGreyColor, fontSize: 15),
+                    Text(
+                      "$viewCount views . ",
+                      style: const TextStyle(color: kGreyColor, fontSize: 15),
                     ),
-                    const Text(
-                      "Premiered Jul 1, 2001",
-                      style: TextStyle(color: kGreyColor, fontSize: 15),
+                    Text(
+                      "Published $publishedAt",
+                      style: const TextStyle(color: kGreyColor, fontSize: 15),
                     ),
                   ],
                 ),
@@ -127,7 +132,7 @@ class VideoDetailsScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 IconWidget(
+                IconWidget(
                   icon: Icons.thumb_up_off_alt_outlined,
                   text: likeCount,
                 ),
@@ -190,23 +195,25 @@ class VideoDetailsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Row(
-              children: [
-                const Text("Comments"),
-                const Spacer(),
-                const Icon(Icons.unfold_more),
+              children: const [
+                Text("Comments"),
+                Spacer(),
+                Icon(Icons.unfold_more),
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Row(
-              children: [
-                const CircleAvatar(
+              children: const [
+                CircleAvatar(
+                  backgroundColor: kGreenColor,
                   radius: 14,
+                  child: Text('M'),
                 ),
                 k10Width,
                 k10Width,
-                const Text(
+                Text(
                   "Awesome content, but presentation is boring",
                   style: TextStyle(fontSize: 13),
                 ),

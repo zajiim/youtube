@@ -99,6 +99,7 @@ class HomeScreen extends StatelessWidget {
                       likeCount: state.home?.items[index].statistics?.likeCount,
                       channelAvatar:
                           state.home!.items[index].snippet.thumbnails.low!.url,
+                          publishedAt: state.home!.items[index].snippet.publishedAt,
                       screenDimension: screenDimension,
                     );
                   },

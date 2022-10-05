@@ -46,6 +46,7 @@ class Snippet with _$Snippet {
     required Thumbnails thumbnails,
     required String channelTitle,
     required String channelId,
+    required String publishedAt,
   }) = _Snippet;
 
   factory Snippet.fromJson(Map<String, dynamic> json) =>

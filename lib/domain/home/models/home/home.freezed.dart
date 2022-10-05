@@ -527,6 +527,7 @@ mixin _$Snippet {
   Thumbnails get thumbnails => throw _privateConstructorUsedError;
   String get channelTitle => throw _privateConstructorUsedError;
   String get channelId => throw _privateConstructorUsedError;
+  String get publishedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -542,7 +543,8 @@ abstract class $SnippetCopyWith<$Res> {
       String description,
       Thumbnails thumbnails,
       String channelTitle,
-      String channelId});
+      String channelId,
+      String publishedAt});
 
   $ThumbnailsCopyWith<$Res> get thumbnails;
 }
@@ -562,6 +564,7 @@ class _$SnippetCopyWithImpl<$Res> implements $SnippetCopyWith<$Res> {
     Object? thumbnails = freezed,
     Object? channelTitle = freezed,
     Object? channelId = freezed,
+    Object? publishedAt = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -583,6 +586,10 @@ class _$SnippetCopyWithImpl<$Res> implements $SnippetCopyWith<$Res> {
       channelId: channelId == freezed
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
+              as String,
+      publishedAt: publishedAt == freezed
+          ? _value.publishedAt
+          : publishedAt // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -606,7 +613,8 @@ abstract class _$$_SnippetCopyWith<$Res> implements $SnippetCopyWith<$Res> {
       String description,
       Thumbnails thumbnails,
       String channelTitle,
-      String channelId});
+      String channelId,
+      String publishedAt});
 
   @override
   $ThumbnailsCopyWith<$Res> get thumbnails;
@@ -628,6 +636,7 @@ class __$$_SnippetCopyWithImpl<$Res> extends _$SnippetCopyWithImpl<$Res>
     Object? thumbnails = freezed,
     Object? channelTitle = freezed,
     Object? channelId = freezed,
+    Object? publishedAt = freezed,
   }) {
     return _then(_$_Snippet(
       title: title == freezed
@@ -650,6 +659,10 @@ class __$$_SnippetCopyWithImpl<$Res> extends _$SnippetCopyWithImpl<$Res>
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as String,
+      publishedAt: publishedAt == freezed
+          ? _value.publishedAt
+          : publishedAt // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -662,7 +675,8 @@ class _$_Snippet implements _Snippet {
       required this.description,
       required this.thumbnails,
       required this.channelTitle,
-      required this.channelId});
+      required this.channelId,
+      required this.publishedAt});
 
   factory _$_Snippet.fromJson(Map<String, dynamic> json) =>
       _$$_SnippetFromJson(json);
@@ -677,10 +691,12 @@ class _$_Snippet implements _Snippet {
   final String channelTitle;
   @override
   final String channelId;
+  @override
+  final String publishedAt;
 
   @override
   String toString() {
-    return 'Snippet(title: $title, description: $description, thumbnails: $thumbnails, channelTitle: $channelTitle, channelId: $channelId)';
+    return 'Snippet(title: $title, description: $description, thumbnails: $thumbnails, channelTitle: $channelTitle, channelId: $channelId, publishedAt: $publishedAt)';
   }
 
   @override
@@ -695,7 +711,9 @@ class _$_Snippet implements _Snippet {
                 .equals(other.thumbnails, thumbnails) &&
             const DeepCollectionEquality()
                 .equals(other.channelTitle, channelTitle) &&
-            const DeepCollectionEquality().equals(other.channelId, channelId));
+            const DeepCollectionEquality().equals(other.channelId, channelId) &&
+            const DeepCollectionEquality()
+                .equals(other.publishedAt, publishedAt));
   }
 
   @JsonKey(ignore: true)
@@ -706,7 +724,8 @@ class _$_Snippet implements _Snippet {
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(thumbnails),
       const DeepCollectionEquality().hash(channelTitle),
-      const DeepCollectionEquality().hash(channelId));
+      const DeepCollectionEquality().hash(channelId),
+      const DeepCollectionEquality().hash(publishedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -727,7 +746,8 @@ abstract class _Snippet implements Snippet {
       required final String description,
       required final Thumbnails thumbnails,
       required final String channelTitle,
-      required final String channelId}) = _$_Snippet;
+      required final String channelId,
+      required final String publishedAt}) = _$_Snippet;
 
   factory _Snippet.fromJson(Map<String, dynamic> json) = _$_Snippet.fromJson;
 
@@ -741,6 +761,8 @@ abstract class _Snippet implements Snippet {
   String get channelTitle;
   @override
   String get channelId;
+  @override
+  String get publishedAt;
   @override
   @JsonKey(ignore: true)
   _$$_SnippetCopyWith<_$_Snippet> get copyWith =>
