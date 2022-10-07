@@ -16,7 +16,8 @@ class HomeVideoListWidget extends StatelessWidget {
     required this.screenDimension,
     required this.channelAvatar,
     required this.videoID,
-    this.likeCount, this.publishedAt,
+    this.likeCount,
+    this.publishedAt,
   }) : super(key: key);
   final String? imgUrl;
   final String? title;
@@ -45,6 +46,8 @@ class HomeVideoListWidget extends StatelessWidget {
                   likeCount: likeCount.toString(),
                   viewCount: viewCount.toString(),
                   publishedAt: publishedAt.toString(),
+                  imgUrl: imgUrl.toString(),
+                 
                 ),
               ),
             );
@@ -54,10 +57,10 @@ class HomeVideoListWidget extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(
-                  imgUrl.toString(),
-                ),
-              ),
+                  image: NetworkImage(
+                    imgUrl.toString(),
+                  ),
+                  fit: BoxFit.cover),
             ),
           ),
         ),

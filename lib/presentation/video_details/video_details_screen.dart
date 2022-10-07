@@ -75,7 +75,8 @@ class VideoDetailsScreen extends StatelessWidget {
       required this.channelAvatar,
       required this.likeCount,
       required this.viewCount,
-      required this.publishedAt});
+      required this.publishedAt,
+      required this.imgUrl});
   final String videoId;
   final String channelName;
   final String title;
@@ -83,6 +84,7 @@ class VideoDetailsScreen extends StatelessWidget {
   final String likeCount;
   final String viewCount;
   final String publishedAt;
+  final String imgUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -220,15 +222,19 @@ class VideoDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
+          k10Height,
+          k10Height,
           ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return HomeVideoListWidget(
-                  imgUrl: "",
-                  screenDimension: screenDimension,
-                  channelAvatar: "",
-                  videoID: "");
+                imgUrl: imgUrl,
+                screenDimension: screenDimension,
+                channelAvatar: channelAvatar,
+                videoID: videoId,
+                title: title,
+              );
             },
             itemCount: 10,
           ),
